@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Kareem & Abqarino | Creative Digital Studio</title>
+    <meta name="description" content="الموقع الرسمي للمصمم والمطور كريم عمر والمهندس البرمجي عبقرينو (مصطفى محمد أبو طالب). منصة متكاملة لاستعراض الهويات البصرية، واجهات المستخدم التفاعلية الرائدة، المشاريع المشتركة مثل سحورنا وإتق الله، والمنصات التعليمية المؤمنة للطلاب.">
+    <meta name="keywords" content="كريم عمر, عبقرينو, مصطفى محمد أبو طالب, سحورنا, إتق الله, Code Clash, تصميم واجهات, فرونت إند, جافا سكريبت, مطور ويب, بنك 500 جنيه تخيلي, علامة مائية, ابتكار رقمي, استوديو إبداعي, تصميم لوجو">
+    <meta name="author" content="كريم عمر (Kareem Omar) & عبقرينو (Mostafa Mohamed Abu Taleb)">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kemo-omar.github.io/Kareem/">
+    <meta property="og:title" content="Kareem & Abqarino | Creative Digital Studio">
+    <meta property="og:description" content="اندماج الفن الرقمي والبرمجة الخارقة. تصفح مشاريعنا الحية واكتشف حلولنا البصرية والتقنية الرائدة.">
+    <meta property="og:image" content="1.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Kareem & Abqarino | Creative Digital Studio">
+    <meta property="twitter:description" content="اندماج الفن الرقمي والبرمجة الخارقة. تصفح مشاريعنا الحية واكتشف حلولنا البصرية والتقنية الرائدة.">
+    <meta property="twitter:image" content="1.png">
+
+    <link rel="icon" type="image/png" href="1.png">
+    <link rel="apple-touch-icon" href="1.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #a855f7;
+            --accent: #10b981;
+            --gold: #f59e0b;
+            --bg-dark: #070a13;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: initial;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading, nav a, button {
+            font-family: 'Readex Pro', sans-serif;
+        }
+
+        /* ✨ ستايل الـ Glassmorphism الملكي المعزز بالألوان الحية */
+        .premium-glass {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .premium-glass:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+        }
+
+        /* 🖼️ هالة الألوان السحرية المبهجة حول صورة العيد الدائرية */
+        .festive-image-container {
+            position: relative;
+        }
+        .festive-image-container::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            background: linear-gradient(45deg, #3b82f6, #10b981, #f59e0b, #d946ef);
+            border-radius: 32px;
+            z-index: -1;
+            filter: blur(25px);
+            opacity: 0.75;
+            animation: infiniteRotateGlow 8s infinite linear;
+        }
+
+        @keyframes infiniteRotateGlow {
+            0% { transform: rotate(0deg) scale(0.98); opacity: 0.7; }
+            50% { transform: rotate(180deg) scale(1.04); opacity: 0.9; }
+            100% { transform: rotate(360deg) scale(0.98); opacity: 0.7; }
+        }
+
+        /* 🌟 أنيميشن متقدم للإنترو النصي */
+        .intro-char {
+            display: inline-block;
+            transform: translateY(120px) rotate(15deg);
+            opacity: 0;
+        }
+
+        /* تخصيص وتنعيم السكرول بار ليليق بواجهة مذهلة */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            border: 2px solid #070a13;
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+    <div id="super-intro" class="fixed inset-0 z-50 bg-[#04060c] flex flex-col justify-center items-center overflow-hidden">
+        <div id="intro-bg-glow-1" class="absolute w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[120px] -top-20 -left-20 pointer-events-none"></div>
+        <div id="intro-bg-glow-2" class="absolute w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px] -bottom-20 -right-20 pointer-events-none"></div>
+        
+        <div class="text-center relative z-10 space-y-6">
+            <div class="text-7xl md:text-9xl font-black tracking-tight select-none flex justify-center items-center space-x-reverse space-x-3">
+                <span class="intro-char text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-cyan-400">K</span>
+                <span class="intro-char text-slate-600">&</span>
+                <span class="intro-char text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-400">A</span>
+            </div>
+            
+            <p id="intro-subtext" class="text-slate-400 font-medium tracking-widest text-xs md:text-sm uppercase opacity-0 transform translate-y-4">
+                Creative Digital Studio • l2026
+            </p>
+            
+            <div class="w-64 h-[3px] bg-white/5 mx-auto rounded-full overflow-hidden relative border border-white/5">
+                <div id="super-loader-bar" class="absolute top-0 right-0 h-full w-0 bg-gradient-to-l from-blue-500 via-purple-500 to-emerald-400 shadow-[0_0_15px_rgba(59,130,246,0.6)]"></div>
+            </div>
+            
+            <div id="intro-percentage" class="text-slate-500 font-mono text-xs opacity-0">0%</div>
+        </div>
+    </div>
+
+
+    <div id="master-wrapper" class="invisible opacity-0">
+        
+        <header class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[94%] max-w-7xl h-16 z-40 px-4 md:px-8 flex items-center justify-between premium-glass rounded-full shadow-2xl transition-all duration-300">
+            <div class="flex items-center gap-3">
+                <img src="1.png" alt="K&A Logo" class="w-9 h-9 object-contain rounded-full border border-white/20 animate-pulse">
+                <span class="text-base md:text-lg font-extrabold tracking-tighter bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent uppercase select-none">
+                    Kareem × Abqarino
+                </span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold text-slate-300 tracking-wide">
+                <a href="#hero" class="hover:text-blue-400 transition-colors duration-200">الرئيسية</a>
+                <a href="#festive" class="hover:text-emerald-400 transition-colors duration-200">تهنئة العيد</a>
+                <a href="#platforms" class="hover:text-purple-400 transition-colors duration-200">منصاتنا الحية</a>
+                <a href="#services" class="hover:text-blue-400 transition-colors duration-200">الخدمات المشتركة</a>
+                <a href="#skills" class="hover:text-amber-400 transition-colors duration-200">ترسانة المهارات</a>
+                <a href="#watermark-hub" class="hover:text-rose-400 transition-colors duration-200">المذكرات المحمية</a>
+            </nav>
+            
+            <a href="#contact" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-500 hover:to-pink-500 px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs font-bold shadow-lg shadow-blue-500/10 hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105">
+                تواصل معنا
+            </a>
+        </header>
+
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center px-4 md:px-8 pt-24 relative overflow-hidden">
+            <div class="absolute w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[160px] top-1/4 -right-40 pointer-events-none"></div>
+            <div class="absolute w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[160px] bottom-1/4 -left-40 pointer-events-none"></div>
+
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+                
+                <div class="lg:col-span-7 space-y-6 text-right order-2 lg:order-1 flex flex-col justify-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit self-start md:self-auto" id="hero-badge">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span class="text-[10px] md:text-xs font-bold text-slate-300 tracking-wider">الإصدار الفاخر والأحدث لعام 2026</span>
+                    </div>
+
+                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.15] text-white tracking-tight" id="hero-title">
+                        هندسة الأكواد <br class="hidden md:inline">
+                        تلتقي بـ <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">سحر التصميم</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-base md:text-xl leading-relaxed font-light max-w-2xl" id="hero-desc">
+                        مرحباً بكم في المختبر الرقمي الموحد لـ **كريم عمر & عبقرينو**. نحن لا نبني مواقع إنترنت تقليدية؛ بل نبتكر تجارب بصرية مذهلة تسر الناظرين، مدمجة بأكواد خارقة، مرونة مطلقة متوافقة مع جميع مقاسات الشاشات، وهويات بصرية متكاملة تحبس الأنفاس.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4 justify-start" id="hero-actions">
+                        <a href="#platforms" class="px-6 py-4 bg-white text-black font-bold rounded-2xl hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-2xl hover:scale-105 text-xs md:text-sm">
+                            تصفح المنصات الحية
+                        </a>
+                        <a href="#watermark-hub" class="px-6 py-4 premium-glass font-bold border border-white/10 rounded-2xl hover:bg-white/5 transition-all text-xs md:text-sm">
+                            منصة المذكرات المؤمنة
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2" id="hero-image-wrapper">
+                    <div class="festive-image-container w-full max-w-[340px] md:max-w-[420px]">
+                        <img src="عيد.png" 
+                             alt="تهنئة عيد الأضحى المبارك - كريم وعبقرينو" 
+                             class="w-full h-auto object-cover rounded-[32px] shadow-[0_25px_60px_rgba(0,0,0,0.6)] transition-all duration-500 hover:scale-[1.02]"
+                             onerror="this.src='1000266321.png';">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="festive" class="py-24 px-4 md:px-8 relative reveal-element">
+            <div class="max-w-4xl mx-auto premium-glass p-8 md:p-12 rounded-[32px] text-center space-y-6 relative overflow-hidden border border-emerald-500/20 shadow-[0_20px_50px_rgba(16,185,129,0.1)]">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                <div class="text-4xl md:text-5xl">🐑✨</div>
+                <h3 class="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-emerald-400 via-amber-400 to-cyan-400 bg-clip-text text-transparent">
+                    تهنئة خاصة بمناسبة عيد الأضحى المبارك
+                </h3>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-light">
+                    يطيب لـ **كريم عمر وعبقرينو** أن يتقدما إليكم بأسمى آيات التهاني والتبريكات المحملة بالود والتقدير بمناسبة حلول عيد الأضحى المبارك. أعاده الله علينا وعليكم وعلى الأمة الإسلامية بالخير واليمن والبركات. نسأل الله أن يتقبل منكم الطاعات، وأن يجعل أيامكم كلها نجاحاً، إبداعاً، وتفوقاً مستمراً. كل عام وأنتم بخير!
+                </p>
+                <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto"></div>
+            </div>
+        </section>
+
+
+        <section id="platforms" class="py-24 px-4 md:px-8 relative max-w-7xl mx-auto reveal-element">
+            <div class="text-center space-y-4 mb-16">
+                <h3 class="text-3xl md:text-5xl font-black text-white tracking-tight">المنصات الرقمية الحية</h3>
+                <p class="text-slate-400 text-xs md:text-sm max-w-lg mx-auto">المشاريع الرسمية المشتركة والمستقلة المرفوعة حياً على سيرفرات جيت هاب العالمية</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="premium-glass p-8 rounded-[28px] flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-emerald-500">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-2xl">🕌</div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">منصة إتق الله</h4>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-light">
+                            المشروع التعليمي والإسلامي المميز والمطور بأرقى التقنيات البصرية لتقديم محتوى هادف وبنية تصفح مرنة تسر أعين الطلاب والمستخدمين على حد سواء.
+                        </p>
+                    </div>
+                    <a href="https://akmtoa.github.io/atqallah/" target="_blank" class="mt-8 inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300 hover:underline">
+                        زيارة منصة إتق الله الحية الآن ←
+                    </a>
+                </div>
+
+                <div class="premium-glass p-8 rounded-[28px] flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-cyan-500">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-2xl">🌙</div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">منصة سحورنا (SOHOORNA)</h4>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-light">
+                            منصة اجتماعية وتفاعلية فاجرة، مصممة بهيكل ويب حديث وممتاز لعرض الفعاليات الرمضانية والتجمعات الشبابية الإبداعية للتيم والمجتمع الخاص بنا.
+                        </p>
+                    </div>
+                    <a href="https://kemo-omar.github.io/SOHOORNA/" target="_blank" class="mt-8 inline-flex items-center gap-2 text-xs font-bold text-cyan-400 hover:text-cyan-300 hover:underline">
+                        زيارة منصة سحورنا الحية الآن ←
+                    </a>
+                </div>
+
+                <div class="premium-glass p-8 rounded-[28px] flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-purple-500">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-2xl">⚔️</div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">منصة مسابقات Code Clash</h4>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed font-light">
+                            نظام التسجيل الشامل للمنافسات البرمجية الجماعية 3v3، المدمج بروابط قواعد بيانات Firebase لتسجيل واحتساب السكور والنقاط بشكل حي ومؤمن.
+                        </p>
+                    </div>
+                    <span class="mt-8 text-[11px] font-mono text-purple-400 bg-purple-500/5 px-3 py-1 rounded-md w-fit">
+                        ⚙️ قيد الربط والتطوير النهائي
+                    </span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="services" class="py-24 px-4 md:px-8 bg-slate-900/20 border-y border-white/5 relative reveal-element">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center space-y-4 mb-16">
+                    <h3 class="text-3xl md:text-5xl font-black text-white">الخدمات والحلول الرقمية التي نقدمها</h3>
+                    <p class="text-slate-400 text-xs md:text-sm">ما يمكن لكريم وعبقرينو تحويله من مجرد فكرة إلى واقع مرئي خارق</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="premium-glass p-6 rounded-2xl space-y-3">
+                        <div class="text-3xl">✨</div>
+                        <h5 class="text-lg font-bold text-white">واجهات مستخدم تفاعلية</h5>
+                        <p class="text-slate-400 text-xs leading-relaxed font-light">تطوير فرونت إند احترافي ومتقدم بالاعتماد على مهارات CSS Grid و Flexbox وتقنيات Glassmorphic الحديثة شديدة الأناقة.</p>
+                    </div>
+
+                    <div class="premium-glass p-6 rounded-2xl space-y-3">
+                        <div class="text-3xl">🎬</div>
+                        <h5 class="text-lg font-bold text-white">أنيميشن فائق الحركة</h5>
+                        <p class="text-slate-400 text-xs leading-relaxed font-light">دمج مكتبات GSAP و ScrollTrigger لتوليد حركات انسيابية تفاعلية مذهلة مع السكرول بدون أي تأثير على الأداء أو سرعة التصفح.</p>
+                    </div>
+
+                    <div class="premium-glass p-6 rounded-2xl space-y-3">
+                        <div class="text-3xl">🎨</div>
+                        <h5 class="text-lg font-bold text-white">الهويات الفنية والبراندنج</h5>
+                        <p class="text-slate-400 text-xs leading-relaxed font-light">ابتكار تصميمات لوجوهات فخمة وعالية الدقة وشهادات تقدير وتنسيق ألوان ملكية مبتكرة ومريحة تماماً لعين المستخدم.</p>
+                    </div>
+
+                    <div class="premium-glass p-6 rounded-2xl space-y-3">
+                        <div class="text-3xl">🛡️</div>
+                        <h5 class="text-lg font-bold text-white">تأمين الملفات وحقوق النشر</h5>
+                        <p class="text-slate-400 text-xs leading-relaxed font-light">بناء أنظمة برمجية حية تعتمد على جافا سكريبت لحماية حقوق المذكرات التعليمية عن طريق دمج علامات مائية ضخمة وغير قابلة للإزالة تلقائياً.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="skills" class="py-24 px-4 md:px-8 max-w-7xl mx-auto reveal-element">
+            <h3 class="text-3xl md:text-5xl font-black text-center mb-16 text-white">ترسانة القدرات البرمجية والفنية</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="p-5 rounded-2xl bg-blue-500/5 border border-blue-500/15 text-center transition-all duration-300 hover:bg-blue-500/10">
+                    <span class="text-blue-400 font-bold text-sm md:text-base block">Advanced Frontend Dev</span>
+                </div>
+                <div class="p-5 rounded-2xl bg-purple-500/5 border border-purple-500/15 text-center transition-all duration-300 hover:bg-purple-500/10">
+                    <span class="text-purple-400 font-bold text-sm md:text-base block">GSAP & ScrollTrigger</span>
+                </div>
+                <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/15 text-center transition-all duration-300 hover:bg-emerald-500/10">
+                    <span class="text-emerald-400 font-bold text-sm md:text-base block">UI/UX Graphic Art</span>
+                </div>
+                <div class="p-5 rounded-2xl bg-amber-500/5 border border-amber-500/15 text-center transition-all duration-300 hover:bg-amber-500/10">
+                    <span class="text-amber-400 font-bold text-sm md:text-base block">Cybersecurity & Securing Docs</span>
+                </div>
+                <div class="p-5 rounded-2xl bg-cyan-500/5 border border-cyan-500/15 text-center transition-all duration-300 hover:bg-cyan-500/10">
+                    <span class="text-cyan-400 font-bold text-sm md:text-base block">Tailwind CSS v4 Engine</span>
+                </div>
+                <div class="p-5 rounded-2xl bg-rose-500/5 border border-rose-500/15 text-center transition-all duration-300 hover:bg-rose-500/10">
+                    <span class="text-rose-400 font-bold text-sm md:text-base block">Firebase Logic Integrations</span>
+                </div>
+                
+                <div class="p-5 rounded-2xl border border-dashed border-slate-800 flex items-center justify-center">
+                    <span class="text-slate-600 text-xs md:text-sm font-medium">[ مهارة جديدة قادمة في الصيف... ]</span>
+                </div>
+                <div class="p-5 rounded-2xl border border-dashed border-slate-800 flex items-center justify-center">
+                    <span class="text-slate-600 text-xs md:text-sm font-medium">[ تكنولوجيا الـ 3D المتقدمة... ]</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="watermark-hub" class="py-24 px-4 md:px-8 bg-slate-950/40 border-t border-white/5 reveal-element">
+            <div class="max-w-5xl mx-auto text-center space-y-4">
+                <h3 class="text-3xl md:text-5xl font-black text-white">منصة حماية حقوق الملفات والمذكرات</h3>
+                <p class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto mb-12 font-light">
+                    نظام أمني مدمج بالجافا سكريبت يعتمد على الـ Canvas لحفظ وإثبات ملكية المذكرات التعليمية والتصاميم، يقوم بطباعة علامة مائية ضخمة لـ **كريم وعبقرينو** قبل التنزيل التلقائي.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-right">
+                    
+                    <div class="premium-glass p-8 rounded-3xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-mono text-blue-400 tracking-widest uppercase block">[ Secure PDF Node ]</span>
+                            <h4 class="text-xl md:text-2xl font-bold text-white">المذكرات والملازم التعليمية (التاريخ والعلوم)</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed font-light">خزانة تحميل وتأمين المذكرات والمخلصات الدراسية للصفوف والمجموعات التعليمية الخاصة بنا.</p>
+                        </div>
+                        <button onclick="processSecureAction('مذكرة التاريخ المعتمدة - كريم وعبقرينو.pdf', 'pdf')" class="w-full mt-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-xs transition-colors shadow-lg shadow-blue-600/20 cursor-pointer">
+                            توليد غلاف المذكرة بالعلامة المائية الضخمة
+                        </button>
+                    </div>
+
+                    <div class="premium-glass p-8 rounded-3xl flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-mono text-rose-400 tracking-widest uppercase block">[ Secure Image Asset ]</span>
+                            <h4 class="text-xl md:text-2xl font-bold text-white">معرض اللوجوهات والشهادات الفنية</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed font-light">تحميل ومعاينة الأصول البصرية والعملات التخيلية المصممة بعناية فائقة وضمان حمايتها من السرقة.</p>
+                        </div>
+                        <button onclick="processSecureAction('عيد.png', 'image')" class="w-full mt-8 py-3.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-xl text-xs transition-colors shadow-lg shadow-purple-600/20 cursor-pointer">
+                            تحميل بطاقة المعايدة محمية مائياً
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="py-24 px-4 md:px-8 max-w-5xl mx-auto reveal-element">
+            <div class="premium-glass p-8 md:p-14 rounded-[36px] text-center space-y-12 relative overflow-hidden bg-gradient-to-br from-blue-950/20 via-slate-900/40 to-pink-950/10 border border-white/10">
+                <div class="space-y-3">
+                    <h3 class="text-3xl md:text-5xl font-black text-white">دعنا نصنع شيئاً خارقاً معاً</h3>
+                    <p class="text-slate-400 text-xs md:text-base max-w-md mx-auto font-light">تواصل معنا الآن للحصول على واجهات ويب مذهلة وهوية فنية فريدة تسر الناظرين وتكتسح المنافسة.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-right">
+                    
+                    <a href="tel:01101258549" class="premium-glass p-6 block group rounded-2xl border-slate-800 hover:border-blue-500 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-xl">📱</span>
+                            <span class="text-xs text-slate-400 font-semibold">موبايل / واتساب كريم عمر</span>
+                        </div>
+                        <span class="text-xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors font-mono block">01101258549</span>
+                    </a>
+
+                    <a href="tel:+201158606601" class="premium-glass p-6 block group rounded-2xl border-slate-800 hover:border-pink-500 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-xl">💻</span>
+                            <span class="text-xs text-slate-400 font-semibold">موبايل / واتساب عبقرينو</span>
+                        </div>
+                        <span class="text-xl font-bold text-pink-400 group-hover:text-pink-300 transition-colors font-mono block">+20 11 58606601</span>
+                    </a>
+
+                </div>
+
+                <div class="premium-glass p-4 inline-flex items-center gap-3 rounded-xl bg-black/30 border-white/5">
+                    <span class="text-xs md:text-sm text-slate-400">البريد الإلكتروني الموحد للاستوديو:</span>
+                    <a href="mailto:abq1kar1@gmail.com" class="text-xs md:text-sm text-white font-bold hover:underline font-mono">abq1kar1@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="py-12 text-center text-slate-500 text-[11px] border-t border-white/5 font-mono select-none tracking-widest">
+            © 2026 KAREEM & ABQARINO STUDIO. POWERED BY EXTRAORDINARY CREATIVITY & CODE PERFECTION.
+        </footer>
+
+    </div>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            
+            const introTimeline = gsap.timeline();
+            
+            let progressObj = { value: 0 };
+            introTimeline.to(progressObj, {
+                value: 100,
+                duration: 1.4,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    const currentPercent = Math.floor(progressObj.value);
+                    document.getElementById('super-loader-bar').style.width = currentPercent + '%';
+                    document.getElementById('intro-percentage').innerText = currentPercent + '%';
+                }
+            });
+
+            gsap.to('#intro-subtext, #intro-percentage', { opacity: 1, y: 0, duration: 0.4 });
+
+            introTimeline.to('.intro-char', {
+                opacity: 1,
+                y: 0,
+                rotate: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "back.out(1.8)"
+            }, "-=1.2");
+
+            introTimeline.to('#super-intro', {
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                duration: 1.0,
+                ease: "power4.inOut"
+            }, "+=0.2");
+
+            introTimeline.to('#master-wrapper', {
+                init: () => {
+                    document.getElementById('master-wrapper').classList.remove('invisible');
+                },
+                opacity: 1,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.6");
+
+            introTimeline.from('#hero-badge', { opacity: 0, y: -20, duration: 0.4 }, "-=0.2");
+            introTimeline.from('#hero-title', { opacity: 0, y: 30, duration: 0.6, ease: "power3.out" }, "-=0.3");
+            introTimeline.from('#hero-desc', { opacity: 0, y: 25, duration: 0.6, ease: "power3.out" }, "-=0.4");
+            introTimeline.from('#hero-actions', { opacity: 0, y: 20, duration: 0.5 }, "-=0.4");
+            introTimeline.from('#hero-image-wrapper', { opacity: 0, scale: 0.94, duration: 0.8, ease: "power2.out" }, "-=0.6");
+
+            gsap.utils.toArray('.reveal-element').forEach((section) => {
+                gsap.to(section, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 82%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        });
+
+        function processSecureAction(source, type) {
+            alert('يتم الآن استدعاء المحرك الأمني لتيم "كريم وعبقرينو" لدمج علامة مائية ضخمة وحفظ الحقوق الفكرية فوراً...');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            if (type === 'image') {
+                const img = new Image();
+                img.crossOrigin = "anonymous"; 
+                img.src = source;
+                img.onload = function() {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    
+                    ctx.drawImage(img, 0, 0);
+                    
+                    ctx.font = `bold ${img.width / 13}px 'Readex Pro', sans-serif`;
+                    ctx.fillStyle = "rgba(255, 255, 255, 0.24)";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    
+                    ctx.save();
+                    ctx.translate(canvas.width / 2, canvas.height / 2);
+                    ctx.rotate(-Math.PI / 6);
+                    ctx.fillText("PROPERTY OF KAREEM & ABQARINO", 0, 0);
+                    ctx.restore();
+                    
+                    const link = document.createElement('a');
+                    link.download = 'كريم_وعبقرينو_معايدة_محمية.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                };
+            } else if (type === 'pdf') {
+                canvas.width = 1000;
+                canvas.height = 1400;
+                
+                ctx.fillStyle = "#0c1122";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.strokeStyle = "rgba(59, 130, 246, 0.25)";
+                ctx.lineWidth = 6;
+                ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+                
+                ctx.font = "bold 38px 'Readex Pro', sans-serif";
+                ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
+                ctx.textAlign = "center";
+                
+                for(let h = 200; h < canvas.height; h += 300) {
+                    ctx.fillText("KAREEM & ABQARINO EDUCATIONAL HUB", canvas.width / 2, h);
+                }
+                
+                ctx.font = "bold 55px 'Tajawal', sans-serif";
+                ctx.fillStyle = "#3b82f6";
+                ctx.fillText("مذكرات وملازم الطلاب المعتمدة", canvas.width / 2, canvas.height / 2 - 50);
+                
+                ctx.font = "24px 'Tajawal', sans-serif";
+                ctx.fillStyle = "#10b981";
+                ctx.fillText("تم التأمين والتشغير مائياً بواسطة استوديو كريم وعبقرينو البرمجي", canvas.width / 2, canvas.height / 2 + 30);
+                
+                const link = document.createElement('a');
+                link.download = source;
+                link.href = canvas.toDataURL('image/jpeg');
+                link.click();
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetSection = document.querySelector(this.getAttribute('href'));
+                if(targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
